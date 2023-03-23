@@ -9,7 +9,7 @@ class Load_var:
     def __init__(self, img):
 
         self.img_mat = cv2.imread(img)
-        self.model = load_model("D:\CNN_Projects\Tumer\model_tumor.h5")
+        self.model = load_model("D:\CNN_Projects\Brain_Tumor\model_tumor_.h5")
         self.display_str = ["Negative - Type None","Positive - Type Glioma","Positive - Type Meningioma","Positive - Type Pituitary"]
 
 
@@ -26,8 +26,7 @@ class Predict_image(Load_var):
 
         self.image_ = cv2.resize(self.image, (self.mat_size, self.mat_size))
         self.image_ = self.image_ / 255.0
-        img_arr = image.img_to_array(self.image_)
-        img_res = np.expand_dims(img_arr, axis=0)
+        img_res = np.expand_dims(self.image_, axis=0)
         usr_prd = np.argmax(self.cnn_model.predict(img_res))
         return usr_prd
 
@@ -59,6 +58,6 @@ class Diplay_result(Load_var):
 
 if __name__ == "__main__":
 
-    dis = Diplay_result("D:\CNN_Projects\Tumer\default.jpg",
+    dis = Diplay_result("D:\CNN_Projects\Brain_Tumor\default.jpg",
                         image_size=48, display_img_size=800)
     dis.display()

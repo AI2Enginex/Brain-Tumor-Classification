@@ -123,8 +123,8 @@ if __name__ == '__main__':
 
     """
 
-    keras_model = Build_Model(model_name="model_tumor.h5",patience=15,directory1="D:\CNN_Projects\Brain_Tumor\Training", 
-                              directory2="D:\CNN_Projects\Brain_Tumor\Testing",size=48, color_mode="grayscale", 
+    keras_model = Build_Model(model_name="model_tumor_.h5",patience=15,directory1="D:\CNN_Projects\Brain_Tumor\Training", 
+                              directory2="D:\CNN_Projects\Brain_Tumor\Testing",size=48, color_mode="rgb", 
                               class_mode="categorical", batch=32)
-    keras_model.model_fitting(filter_count=32,channel=1,padding_value='same',layer_acf='relu',class_count=4 ,activation='softmax',epochs=30,
+    keras_model.model_fitting(filter_count=32,channel=3,padding_value='same',layer_acf='relu',class_count=4 ,activation='softmax',epochs=30,
                               loss_func='categorical_crossentropy',steps=10,dropout_rate=0)

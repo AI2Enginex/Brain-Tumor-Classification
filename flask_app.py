@@ -23,8 +23,7 @@ class Load_var:
             self.image_ = cv2.resize(
                 self.image, (self.mat_size, self.mat_size))
             self.image_ = self.image_ / 255.0
-            img_arr = image.img_to_array(self.image_)
-            img_res = np.expand_dims(img_arr, axis=0)
+            img_res = np.expand_dims(self.image_, axis=0)
             usr_prd = self.labels[np.argmax(self.model.predict(img_res))]
             return usr_prd
         except:
